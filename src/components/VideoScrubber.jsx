@@ -52,6 +52,27 @@ export default function VideoScrubber({ src }) {
     }
   }, [])
 
+  // 卡片滑入视口时自动开始播放；离开视口时暂停（避免多视频同时在播、省流量）
+  useEffect(() => {
+    const wrap = wrapRef.current
+    const v = videoRef.current
+    if (!wrap || !v) return
+    const io = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            v.play().catch(() => {})
+          } else if (dragRef.current && !dragRef.current.active && !v.paused) {
+            v.pause()
+          }
+        })
+      },
+      { threshold: 0.15 }
+    )
+    io.observe(wrap)
+    return () => io.disconnect()
+  }, [])
+
   // window 级拖拽监听
   useEffect(() => {
     const onMove = (e) => {

@@ -27,7 +27,11 @@ export default function About() {
               <div className="about__contact card">
                 <div className="about__contact-head">
                   <div className="about__contact-name">应小龙</div>
-                  <div className="about__contact-role">主创设计师</div>
+                  <div className="about__contact-role">
+                    现担任
+                    <br />
+                    台州万可维创意设计-主理人
+                  </div>
                 </div>
                 <ul className="about__contact-list">
                   <li>
@@ -77,34 +81,6 @@ export default function About() {
               ))}
             </Reveal>
 
-            <Reveal className="timeline">
-              <h3 className="timeline__title">工作经历</h3>
-              <div className="timeline__list">
-                {site.education.map((item) => (
-                  <div className="timeline__item" key={item.school}>
-                    <div className="timeline__dot" />
-                    <div className="timeline__period">{item.period}</div>
-                    <div className="timeline__body">
-                      <div className="timeline__role">
-                        {item.major} · {item.degree}
-                      </div>
-                      <div className="timeline__company">{item.school}</div>
-                    </div>
-                  </div>
-                ))}
-                {site.experience.map((item) => (
-                  <div className="timeline__item" key={item.company}>
-                    <div className="timeline__dot" />
-                    <div className="timeline__period">{item.period}</div>
-                    <div className="timeline__body">
-                      <div className="timeline__role">{item.role}</div>
-                      <div className="timeline__company">{item.company}</div>
-                      <div className="timeline__desc">{item.desc}</div>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </Reveal>
           </div>
         </div>
       </div>
