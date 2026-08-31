@@ -6,7 +6,7 @@ export const site = {
   subtitle:
     '13 年跨领域设计实践，贯通商业空间、品牌策划、IP 角色、AI 视觉与产品设计，把想象变成可被感知的体验。',
   // 首页视频背景：将视频文件放入 public/ 目录后，这里填入相对地址，例如 '/hero.mp4'
-  heroVideo: '/hero-bg.mp4',
+  heroVideo: './hero-bg.mp4',
   phone: '13586065929',
   phoneDisplay: '135 8606 5929',
   email: '',

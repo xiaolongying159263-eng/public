@@ -4,15 +4,15 @@ import VideoScrubber from './VideoScrubber.jsx'
 import { site } from '../data/site.js'
 
 const COMMERCIAL_IMAGES = [
-  '/commercial-1.webp',
-  '/commercial-2.webp',
-  '/commercial-3.webp',
-  '/commercial-4.webp',
+  './commercial-1.webp',
+  './commercial-2.webp',
+  './commercial-3.webp',
+  './commercial-4.webp',
 ]
 
 const PRODUCT_IMAGES = [
-  '/product-1.webp',
-  '/product-2.webp',
+  './product-1.webp',
+  './product-2.webp',
 ]
 
 function scrollToContact() {
@@ -61,8 +61,8 @@ export default function Projects() {
                     </Marquee>
                   ) : project.index === '03' ? (
                     <Marquee speed={70}>
-                      <img src="/brand-sheet.webp" alt={project.title} />
-                      <img src="/brand-sheet.webp" alt="" aria-hidden="true" />
+                      <img src="./brand-sheet.webp" alt={project.title} />
+                      <img src="./brand-sheet.webp" alt="" aria-hidden="true" />
                     </Marquee>
                   ) : project.index === '01' ? (
                     <Marquee speed={68}>
@@ -75,16 +75,16 @@ export default function Projects() {
                     </Marquee>
                   ) : project.index === '02' ? (
                     <Marquee speed={68}>
-                      <img src="/interior-1.webp" alt={project.title} />
-                      <img src="/interior-1.webp" alt="" aria-hidden="true" />
+                      <img src="./interior-1.webp" alt={project.title} />
+                      <img src="./interior-1.webp" alt="" aria-hidden="true" />
                     </Marquee>
                   ) : project.index === '04' ? (
                     <Marquee speed={68}>
-                      <img src="/ip-1.webp" alt={project.title} />
-                      <img src="/ip-1.webp" alt="" aria-hidden="true" />
+                      <img src="./ip-1.webp" alt={project.title} />
+                      <img src="./ip-1.webp" alt="" aria-hidden="true" />
                     </Marquee>
                   ) : project.index === '06' ? (
-                    <VideoScrubber src="/animation.mp4" />
+                    <VideoScrubber src="./animation.mp4" />
                   ) : (
                     <div className="project-card__media-art" />
                   )}
