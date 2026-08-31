@@ -30,7 +30,9 @@ export default function About() {
                   <div className="about__contact-role">
                     现担任
                     <br />
-                    台州万可维创意设计-主理人
+                    台州万可维创意设计
+                    <br />
+                    主理人＆设计总监
                   </div>
                 </div>
                 <ul className="about__contact-list">
