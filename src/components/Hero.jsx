@@ -49,7 +49,7 @@ export default function Hero() {
           <video
             ref={videoRef}
             className="hero__video"
-            src={site.heroVideo}
+            poster="./hero-poster.jpg" src={site.heroVideo}
             autoPlay
             muted
             loop
