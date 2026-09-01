@@ -8,7 +8,7 @@ GitHub Pages 仍公开正常发布；下面的 Cloudflare 版可在您需要"发
 
 ## 工作原理
 
-- 每次生成一条**带加密令牌的链接**，令牌内含到期时间（默认 30 分钟）。
+- 每次生成一条**带加密令牌的链接**，令牌内含到期时间（默认 10 分钟）。
 - 只有令牌有效时才能打开站点；到期后访问会返回"链接已失效"。
 - 要再给下一个人看，就**重新生成一条新链接**。
 - 令牌由密钥 `GATE_SECRET` 签名，伪造/篡改会失败。
@@ -50,11 +50,11 @@ wrangler pages deploy dist --project-name=<project>
 ### 方法 1：网页接口（最方便）
 把下面地址里的 `OWNER_KEY` 换成**你在 Cloudflare 设置的那个口令**（它可作为 Secret 存于 Cloudflare，不写进仓库），在浏览器打开即可拿到一条新链接：
 ```
-https://ying-portfolio-gated.pages.dev/api/link?key=OWNER_KEY&minutes=30
+https://ying-portfolio-gated.pages.dev/api/link?key=OWNER_KEY&minutes=10
 ```
 返回 JSON：
 ```json
-{ "url": "https://ying-portfolio-gated.pages.dev/?tk=...", "expiresInMinutes": 30 }
+{ "url": "https://ying-portfolio-gated.pages.dev/?tk=...", "expiresInMinutes": 10 }
 ```
 把其中 `url` 整条发给对方。
 
@@ -63,7 +63,7 @@ https://ying-portfolio-gated.pages.dev/api/link?key=OWNER_KEY&minutes=30
 cd 工程目录
 set GATE_SECRET=你的密钥
 set BASE_URL=https://ying-portfolio-gated.pages.dev
-set MINUTES=30
+set MINUTES=10
 node scripts/make-link.mjs
 ```
 脚本会打印一条带令牌的新链接。

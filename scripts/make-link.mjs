@@ -10,7 +10,7 @@ import { signToken } from '../functions/_lib/token.js'
 
 const secret = process.env.GATE_SECRET
 const base = (process.env.BASE_URL || 'https://your-project.pages.dev').replace(/\/$/, '')
-const minutes = Math.max(1, Number(process.env.MINUTES || 30))
+const minutes = Math.max(1, Number(process.env.MINUTES || 10))
 
 if (!secret) {
   console.error('Missing GATE_SECRET. Set it to the same value configured in Cloudflare.')
