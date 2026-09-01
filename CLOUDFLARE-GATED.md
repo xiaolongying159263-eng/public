@@ -3,6 +3,9 @@
 这套功能给站点加一层「令牌 + 到期」访问控制，**不影响现有 GitHub Pages 版本**。
 GitHub Pages 仍公开正常发布；下面的 Cloudflare 版可在您需要"发给特定人、限 30 分钟、过期就打不开"时使用。
 
+> ✅ **已上线**：生产域名 `https://ying-portfolio-gated.pages.dev/`。
+> 对该域名访问时：无有效令牌 → `403`「链接已失效」；带有效 `?tk=` 令牌 → 正常打开站点。
+
 ## 工作原理
 
 - 每次生成一条**带加密令牌的链接**，令牌内含到期时间（默认 30 分钟）。
@@ -45,13 +48,13 @@ wrangler pages deploy dist --project-name=<project>
 ## 生成并发送链接（两种方法）
 
 ### 方法 1：网页接口（最方便）
-把下面地址里的 `OWNER_KEY` 换成本人设置的密钥，在浏览器打开即可拿到一条新链接：
+把下面地址里的 `OWNER_KEY` 换成**你在 Cloudflare 设置的那个口令**（它可作为 Secret 存于 Cloudflare，不写进仓库），在浏览器打开即可拿到一条新链接：
 ```
-https://<project>.pages.dev/api/link?key=OWNER_KEY&minutes=30
+https://ying-portfolio-gated.pages.dev/api/link?key=OWNER_KEY&minutes=30
 ```
 返回 JSON：
 ```json
-{ "url": "https://<project>.pages.dev/?tk=...", "expiresInMinutes": 30 }
+{ "url": "https://ying-portfolio-gated.pages.dev/?tk=...", "expiresInMinutes": 30 }
 ```
 把其中 `url` 整条发给对方。
 
@@ -59,7 +62,7 @@ https://<project>.pages.dev/api/link?key=OWNER_KEY&minutes=30
 ```bash
 cd 工程目录
 set GATE_SECRET=你的密钥
-set BASE_URL=https://<project>.pages.dev
+set BASE_URL=https://ying-portfolio-gated.pages.dev
 set MINUTES=30
 node scripts/make-link.mjs
 ```
