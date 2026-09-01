@@ -1,0 +1,7 @@
+name = "ying-portfolio-gated"
+compatibility_date = "2024-11-01"
+pages_build_output_dir = "dist"
+
+# Required runtime secrets / vars (set in Cloudflare dashboard, or via wrangler):
+#   GATE_SECRET : HMAC secret used to sign & verify time-limited tokens
+#   OWNER_KEY   : a private string used to mint new links via /api/link
